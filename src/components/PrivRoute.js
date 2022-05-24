@@ -8,7 +8,7 @@ const PrivRoute = (props) => {
             {...rest}
             render={() => {
                 return localStorage.getItem('token') ? <Component/>
-                : <Redirect to="login"/>
+                : <Redirect to="/login"/>
             }}
 
             />
