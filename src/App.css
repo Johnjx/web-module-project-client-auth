@@ -1,3 +1,68 @@
+.nav-section {
+  background-color: lightcyan;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.main-nav {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.login-frame {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page {
+  height: 60vh;
+  width: 50vw;
+  background-color: lightblue;
+}
+
+/* .login-page div {
+  width: 100%;
+  height: 25%;
+  background-color: lightcyan;
+} */
+
+.login {
+  width: 100%;
+  height: 25%;
+  background-color: lightcyan;
+}
+
+.form-div {
+  width: 100%;
+  height: 75%;
+  background-color: lightcyan;
+}
+
+.form-div form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-page div h1 {
+  margin: 0;
+  height: 100%;
+  font-size: 4rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.main-nav a {
+  padding: 2% 1%;
+  background-color: darkcyan;
+  color: white;
+}
+
 .App {
   text-align: center;
 }
