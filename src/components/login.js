@@ -36,7 +36,7 @@ const Login = (props) => {
     }
 
     return (
-        <div className="login-frame">
+        <div className="frame">
             <section className="login-page">
                 <div className="login">
                     <h1>LOGIN</h1>
