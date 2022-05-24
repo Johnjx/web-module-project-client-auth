@@ -5,7 +5,7 @@ import NavBar from './components/navBar';
 import Login from './components/login';
 import FriendsList from './components/friends';
 import PrivRoute from './components/PrivRoute';
-
+import AddFriends from './components/addFriends';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <NavBar/>
       
       <Switch>
+        <PrivRoute path="/friends/add" component={AddFriends}/>
         <PrivRoute path="/friends" component={FriendsList}/>
         <Route path="/login" component={Login}/>
         <Route path="/" component={Login}/>

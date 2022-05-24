@@ -8,7 +8,7 @@ const NavBar = () => {
             <nav className="main-nav">
                 <Link to="/login">LOGIN</Link>
                 <Link to="/friends">FRIENDLIST</Link>
-                <a>ADDFRIEND</a>
+                <Link to="/friends/add">ADDFRIEND</Link>
                 <a>LOGOUT</a>
             </nav>
         </section>

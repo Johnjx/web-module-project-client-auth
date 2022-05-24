@@ -3,32 +3,36 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const initState = {
-    credentials: {
-        username: '',
-        password: ''
+    friendDetails: {
+        name: '',
+        age: '',
+        email: ''
       }
 }
 
-const Login = () => {
+const AddFriends = () => {
     const [state, setState] = useState(initState)
 
     const history = useHistory();
 
     const handleChange = e => {
         setState({
-          credentials: {
-            ...state.credentials,
+          friendDetails: {
+            ...state.friendDetails,
             [e.target.name]: e.target.value
           }
         });
       };
 
-    const login = e => {
+    const addFriend = e => {
         e.preventDefault();
-        axios.post('http://localhost:9000/api/login', state.credentials)
+        const token = localStorage.getItem('token')
+        axios.post('http://localhost:9000/api/friends', state.friendDetails, {
+            headers: {
+                authorization: token
+            }
+        })
         .then(res => {
-            const { token } = res.data
-            localStorage.setItem('token', token)
             setState(initState)
             history.push('/friends')
         })
@@ -37,24 +41,32 @@ const Login = () => {
 
     return (
         <div className="frame">
+            
             <section className="login-page">
                 <div className="login">
-                    <h1>LOGIN</h1>
+                <h1>ADD FRIEND</h1>
                 </div>
                 <div className="form-div">
-                <form onSubmit={login}>
-                    <label>USERNAME</label>
+                <form onSubmit={addFriend}>
+                    <label>NAME</label>
                     <input
                         type="text"
-                        name="username"
-                        value={state.credentials.username}
+                        name="name"
+                        value={state.friendDetails.name}
                         onChange={handleChange}
                     />
-                    <label>PASSWORD</label>
+                    <label>AGE</label>
                     <input
-                        type="password"
-                        name="password"
-                        value={state.credentials.password}
+                        type="number"
+                        name="age"
+                        value={state.friendDetails.age}
+                        onChange={handleChange}
+                    />
+                     <label>EMAIL</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={state.friendDetails.email}
                         onChange={handleChange}
                     />
                     <button>SUBMIT</button>
@@ -65,5 +77,4 @@ const Login = () => {
     )
 }
 
-export default Login
-
+export default AddFriends
