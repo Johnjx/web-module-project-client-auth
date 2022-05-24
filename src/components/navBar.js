@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
         <section className="nav-section">
             <div><h2>Client Auth Project</h2></div>
             <nav className="main-nav">
-                <a>LOGIN</a>
-                <a>FRIENDLIST</a>
+                <Link to="/login">LOGIN</Link>
+                <Link to="/friends">FRIENDLIST</Link>
                 <a>ADDFRIEND</a>
                 <a>LOGOUT</a>
             </nav>

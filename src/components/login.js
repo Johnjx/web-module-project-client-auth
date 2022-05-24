@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const initState = {
     credentials: {
@@ -7,8 +9,10 @@ const initState = {
       }
 }
 
-const Login = () => {
+const Login = (props) => {
     const [state, setState] = useState(initState)
+
+    const history = useHistory();
 
     const handleChange = e => {
         setState({
@@ -21,6 +25,14 @@ const Login = () => {
 
     const login = e => {
         e.preventDefault();
+        axios.post('http://localhost:9000/api/login', state.credentials)
+        .then(res => {
+            const { token } = res.data
+            localStorage.setItem('token', token)
+            setState(initState)
+            history.push('/friends')
+        })
+        .catch(err => console.log(err))
     }
 
     return (
